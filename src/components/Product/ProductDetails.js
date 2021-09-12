@@ -11,7 +11,7 @@ const ProductDetails = ({pd, addToCart}) => {
             </a>
             <div className='product-price'>
                <h3>{formatCurrency(pd.price)}</h3>
-               <button onClick={() => addToCart()} className='button primary'>Add To cart</button>
+               <button onClick={() => addToCart(pd)} className='button primary'>Add To cart</button>
             </div>
         </div>
     );

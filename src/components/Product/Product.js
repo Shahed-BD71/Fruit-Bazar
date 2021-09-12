@@ -18,7 +18,7 @@ const Product = () => {
         const cartItems = product.cartItems.slice();
         let alreadyInCart = false;
         cartItems.forEach(item => {
-         if (item._id === product._id) {
+         if (item._id === pd._id) {
              item.count++;
              alreadyInCart = true;
          }   
@@ -26,7 +26,7 @@ const Product = () => {
         if(!alreadyInCart){
             cartItems.push({...pd, count: 1})
         }
-        setProduct(product.cartItems)
+        setProduct({cartItems})
     }
 
     const sortProduct = (e) => {
