@@ -1,0 +1,51 @@
+.grid-container {
+  display: grid;
+  grid-template-areas: 'header' 'main' 'footer';
+  grid-template-rows: 5rem 1fr 5rem;
+  grid-template-columns: 1fr;
+  height: 100vh;
+}
+
+header{
+  grid-area: header;
+  background-color: aquamarine;
+  color: black;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+main{
+  grid-area: main;
+}
+footer{
+  grid-area: footer;
+  background-color: blue;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content{
+    display: flex;
+    flex-wrap: wrap;
+}
+.main{
+    flex: 3 60rem;
+}
+.sidebar{
+    flex: 1 20rem;
+}
+
+/* Filter style */
+.filter{
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+    margin: 1rem;
+    border-bottom: 1px solid #c0c0c0;
+}
+
+.filter div{
+
+}
