@@ -26,7 +26,7 @@ const Product = () => {
         if(!alreadyInCart){
             cartItems.push({...pd, count: 1})
         }
-        setProduct({cartItems})
+        setProduct(product.cartItems)
     }
 
     const sortProduct = (e) => {
@@ -54,11 +54,10 @@ const Product = () => {
             products: data.filter(data => data.availableSize.indexOf(e.target.value) >= 0)
         })
     }
-    console.log(product.products.length)
     return (
         <main className='content'>
             <section className='main'>
-                <Filter count={product.products.length} size={product.size} sort={product.sort} sortProduct={sortProduct} filterProduct={filterProduct}
+                <Filter count={product.products} size={product.size} sort={product.sort} sortProduct={sortProduct} filterProduct={filterProduct}
                 ></Filter>
                 <div className="products">
                     {

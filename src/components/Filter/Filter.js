@@ -3,7 +3,7 @@ import React from 'react';
 const Filter = (props) => {
     return (
         <div className='filter'>
-            <div className='filter-result'>{props.count} Products</div>
+            <div className='filter-result'>{props.count.length} Products</div>
             <div className='filter-short'>Order
                 <select value={props.sort} onChange={props.sortProduct}>
                     <option>Latest</option>
