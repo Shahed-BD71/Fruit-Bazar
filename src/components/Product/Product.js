@@ -6,34 +6,33 @@ import Filter from '../Filter/Filter';
 import ProductDetails from './ProductDetails';
 
 const Product = () => {
+    const [cartItems, setCartItems] = useState([])
     const [product, setProduct] = useState({
         products: data,
-        cartItems: [],
         size: '',
         sort: '',
     })
 
     // add to cart section.. Problem in this section.
     const addToCart = (pd) => {
-        const cartItems = product.cartItems.slice();
+        console.log(cartItems)
         let alreadyInCart = false;
+        if(!alreadyInCart){
+            cartItems.push({...pd, count: 1});
+        }
         cartItems.forEach(item => {
          if (item._id === pd._id) {
              item.count++;
              alreadyInCart = true;
-         }   
+            }   
         });
-        if(!alreadyInCart){
-            cartItems.push({...pd, count: 1})
-        }
-        setProduct({cartItems})
+        setCartItems(cartItems)
     }
-
     const sortProduct = (e) => {
         const sort = e.target.value;
-        setProduct((product) => ({
+        setProduct((pd) => ({
             sort: sort,
-            products: product.products.slice().sort((a, b) => (
+            products: pd.products.slice().sort((a, b) => (
                 sort === 'lowest' ?
                 a.price > b.price ? 1:-1
                 :
@@ -66,10 +65,9 @@ const Product = () => {
                 </div>
             </section>
             <aside className='sidebar'>
-                <Cart cartItems={product.cartItems}></Cart>
+               <Cart cart={setCartItems}></Cart>
             </aside>
         </main>
     );
 };
-
 export default Product;
